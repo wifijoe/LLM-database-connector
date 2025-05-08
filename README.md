@@ -56,6 +56,8 @@ This question did not have a good query result, as it was just [(9.9,)]. I chang
 
 After running these questions, I saw that it was trying to do both its own math to answer things, and then it was also not remembering what the question was originally. I changed this so it would be also fed in the original question along with the database result, and edited the instruction_prompt.txt to both reflect that and to not do math anymore. You can see the changes between the two from instruction_prompt_original.txt and instruction_prompt.txt. This prompt change caused the answers to give to make a lot more sense, and made it so the SQL did the math instead of the LLM.
 
+Some other changes I made to the instruction_prompt.txt was simplifying the information I sent over to it (aka not including what is in the database, just the database structure) and adding in a line to give out just raw SQL strings, as it tried to do MarkDown formatting on one of them and crashed the program. **If I were doing this right, I would be serializing the SQL it gives back, but I'm not. If it crashes because the bot does something weird, so be it.**
+
 OTHER QUESTION EXAMPLES:
 ### question 1
 what question do you have about the bakery inventory?
