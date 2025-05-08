@@ -8,18 +8,18 @@ class LLMAPI:
 
     def question_to_sql(self, question):
         response = self.client.responses.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1",
             instructions=self.instructions,
             input=question
         )
 
         return response.output_text
 
-    def sql_to_answer(self, sql):
+    def sql_to_answer(self, question, sql):
         response = self.client.responses.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1",
             instructions=self.instructions,
-            input=sql
+            input="original question: " + question + ", database response: " + sql
         )
 
         return response.output_text
