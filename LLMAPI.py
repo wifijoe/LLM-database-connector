@@ -3,7 +3,7 @@ from openai import OpenAI
 class LLMAPI:
     def __init__(self):
         self.client = OpenAI()
-        with open("instruction_prompt.txt", "r", encoding="utf-8") as file:
+        with open("instruction_prompt.md", "r", encoding="utf-8") as file:
             self.instructions = file.read()
 
     def question_to_sql(self, question):
