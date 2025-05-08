@@ -10,6 +10,9 @@ while True:
         break
     LLM_init_response = chat.question_to_sql(user_question)
     print("llm sql: ", LLM_init_response)
+    if LLM_init_response == "null":
+        print("LLM could not answer this question.")
+        continue
 
     Database_response = database.get_db_info(LLM_init_response)
     print("database response: ", Database_response)
